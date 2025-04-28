@@ -1,18 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { lazy, Suspense } from 'react'
 import './App.css'
+import { Route, Routes } from 'react-router-dom'
+
+// Regular import for fallback (important!)
+import Loading from './pages/Loading'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// Lazy loaded pages
+const Auth = lazy(() => import('./pages/Auth'))
+const Home = lazy(() => import('./pages/Home'))
+const ErrorPage = lazy(() => import('./pages/ErrorPage'))
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className='flex items-center justify-center h-screen'>
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-      </div>
+      <ToastContainer />
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/login" element={<Auth />} />
+          <Route path="/" element={<Home />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+      </Suspense>
     </>
   )
 }
