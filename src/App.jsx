@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 
 // Regular import for fallback (important!)
 import Loading from './pages/Loading'
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
