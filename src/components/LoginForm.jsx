@@ -36,7 +36,7 @@ const LoginForm = ({ handleLogin }) => {
     return (
 
         <div className="w-full max-w-md p-8 space-y-1 rounded-xl  ">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="username" className="block  text-start">Username</label>
                     <input
@@ -105,7 +105,7 @@ const LoginForm = ({ handleLogin }) => {
                 </button>
             </div>
             <p className="text-xs text-center sm:px-6 " onClick={handleLogin} >Don't have an account?
-                <a rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign up</a>
+                <a rel="noopener noreferrer" href="#" className="underline dark:text-gray-800"> Sign up</a>
             </p>
         </div>
 
