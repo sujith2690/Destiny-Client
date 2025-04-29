@@ -2,10 +2,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingContent from './LoadingContent';
 import { loginSchema } from '../schema/validation';
+import { logInApi } from '../APIs/AuthAPI';
 
 
 const LoginForm = ({ handleLogin }) => {
@@ -23,7 +24,11 @@ const LoginForm = ({ handleLogin }) => {
         onSubmit: async (values, action) => {
             setLoading(true)
             try {
-                console.log(values, '---------------values')
+                const { data } = await logInApi(values)
+                console.log(data.message, '---data----')
+                toast.success(data.message)
+                localStorage.setItem("token", data.Token);
+                localStorage.setItem("user", JSON.stringify(data.User));
             } catch (error) {
                 toast.error(error.response.data.message)
                 console.log(error, 'Login failed');
@@ -50,9 +55,9 @@ const LoginForm = ({ handleLogin }) => {
                         placeholder="Email"
 
                         className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-default-600" />
-                {errors.email && touched.email ? (
-                    <p className="text-red-600 text-center text-sm">{errors.email}</p>
-                ) : null}
+                    {errors.email && touched.email ? (
+                        <p className="text-red-600 text-center text-sm">{errors.email}</p>
+                    ) : null}
                 </div>
                 <div className="space-y-1 text-sm">
                     <label htmlFor="password" className="block  text-start">Password</label>
@@ -69,16 +74,16 @@ const LoginForm = ({ handleLogin }) => {
                     <div className="flex justify-end text-xs ">
                         <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                     </div>
-                {errors.password && touched.password ? (
-                    <p className="text-red-600 text-center text-sm">{errors.password}</p>
-                ) : null}
+                    {errors.password && touched.password ? (
+                        <p className="text-red-600 text-center text-sm">{errors.password}</p>
+                    ) : null}
                 </div>
                 {loading ? <div className="pb-2 pt-4">
                     <LoadingContent />
                 </div> : <div className="">
                     <button
                         type='submit'
-                        className="block w-full p-3 text-center rounded-sm bg-blue-600 ">Sign in</button>
+                        className="block w-full p-3 text-center rounded-sm bg-blue-600 cursor-pointer">Sign in</button>
 
                 </div>}
             </form>

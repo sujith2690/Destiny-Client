@@ -7,6 +7,7 @@ import Loading from './pages/Loading'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Lazy loaded pages
 const Auth = lazy(() => import('./pages/Auth'))
@@ -17,6 +18,11 @@ const ErrorPage = lazy(() => import('./pages/ErrorPage'))
 
 
 function App() {
+  const userData = localStorage.getItem('user');
+  const user = userData ? JSON.parse(userData) : null;
+  const userId = user ? user._id : null;
+  console.log(userId, 'userId');
+
   return (
     <div className='h-screen'>
       <ToastContainer />
@@ -27,7 +33,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<ProtectedRoute userId={userId} element={< Profile />} />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Suspense>

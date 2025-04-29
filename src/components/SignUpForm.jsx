@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { toast } from 'react-toastify';
 import { signUpSchema } from '../schema/validation';
 import LoadingContent from './LoadingContent';
+import { signUpApi } from '../APIs/AuthAPI';
 
 const SignUpForm = ({ handleSignUp }) => {
     const navigate = useNavigate()
@@ -23,7 +24,12 @@ const SignUpForm = ({ handleSignUp }) => {
         onSubmit: async (values, action) => {
             setLoading(true)
             try {
-                console.log(values, '---------------values')
+                console.log(values,'------------------values')
+                setFormValues(values)
+                const result = await signUpApi(values)
+                toast.success(result.data.message)
+                setLoading(false)
+                navigate('/')
             } catch (error) {
                 toast.error(error.response.data.message)
                 console.log(error, 'Login failed');

@@ -7,7 +7,7 @@ const Profile = () => {
     return (
         <>
             <Navbar />
-                <UserProfile />
+            <UserProfile />
         </>
     )
 }
