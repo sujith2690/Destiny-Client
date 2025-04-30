@@ -12,9 +12,9 @@ import Packages from '../components/HomePage/Packages'
 const Home = () => {
     return (
         <div className='h-full w-full'>
-            {/* <Navbar />
+            <Navbar />
             <Hero />
-            <About /> */}
+            <About />
             <Packages />
             <Contact />
             <Footer />

@@ -30,7 +30,6 @@ const PackageDetailModal = ({ setModal, id, closeModal, handleBookNow }) => {
             onClick={handleClose}
             className='fixed inset-0 bg-black/15 bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-50 '>
             <div className='w-full h-full bg-white/15'
-            // onClick={(e) => e.stopPropagation()}
             >
                 <section className="w-full h-full pt-4 px-4 sm:px-8 md:px-16 lg:px-32 sm:flex flex-col items-center justify-center gap-2 bg-black/40">
                     <div className='w-full rounded-xl overflow-hidden shadow-md mb-6'>

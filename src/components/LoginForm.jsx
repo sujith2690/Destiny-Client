@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingContent from './LoadingContent';
 import { loginSchema } from '../schema/validation';
-import { logInApi } from '../APIs/AuthAPI';
+import { logInApi } from '../APIs/authAPI';
 
 
 const LoginForm = ({ handleLogin }) => {

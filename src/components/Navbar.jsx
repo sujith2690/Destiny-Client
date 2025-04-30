@@ -15,7 +15,6 @@ const Navbar = () => {
         { name: 'Home', href: 'home' },
         { name: 'About', href: 'about' },
         { name: 'Packages', href: 'packages' },
-        { name: 'Services', href: 'services' },
         { name: 'Contact', href: 'contact' },
     ];
 
@@ -39,12 +38,12 @@ const Navbar = () => {
         <header className={`p-4 fixed sm:px-10 top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md backdrop-blur-md' : 'bg-white/0 backdrop-blur-lg'}`}>
             <div className="container mx-auto flex justify-between items-center h-16">
                 {/* Logo */}
-                <ScrollLink to="home" smooth={true} duration={500} offset={-60} className="cursor-pointer">
+                <RouterLink to="/home" smooth={true} duration={500} offset={-60} className="cursor-pointer">
                     <p className={`sm:text-5xl text-2xl  flex gap-2 ${scrolled ? 'text-black' : 'text-white'}`}>
                         <FaRoute className='transform scale-x-[-1] text-yellow-400' />
                         <span className='font-bold'>DESTINY</span>
                     </p>
-                </ScrollLink>
+                </RouterLink>
 
                 {/* Desktop Links */}
                 <ul className="hidden md:flex items-center space-x-2 text-md font-medium">
@@ -100,9 +99,9 @@ const Navbar = () => {
                             </ScrollLink>
                         ))}
                         <RouterLink to="/profile" className="flex items-center gap-1 text-sm cursor-pointer" onClick={toggleMenu}>
-                            <div className="bg-red-700 h-12 w-12 rounded-full overflow-hidden">
+                            {/* <div className="bg-red-700 h-12 w-12 rounded-full overflow-hidden">
                                 <img className="object-cover w-full h-full" src="./Vagamon.jpg" alt="Profile" />
-                            </div>
+                            </div> */}
                             Profile
                         </RouterLink>
                     </ul>
