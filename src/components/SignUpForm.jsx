@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { toast } from 'react-toastify';
 import { signUpSchema } from '../schema/validation';
 import LoadingContent from './LoadingContent';
-import { signUpApi } from '../APIs/AuthAPI';
+import { signUpApi } from '../APIs/authAPI';
 
 const SignUpForm = ({ handleSignUp }) => {
     const navigate = useNavigate()
