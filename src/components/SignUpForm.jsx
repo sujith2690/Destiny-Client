@@ -106,9 +106,9 @@ const SignUpForm = ({ handleSignUp }) => {
                         id="confirmPassword"
                         placeholder="confirm Password"
                         className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-default-600" />
-                    <div className="flex justify-end text-xs ">
+                    {/* <div className="flex justify-end text-xs ">
                         <a rel="noopener noreferrer" href="#">Forgot Password?</a>
-                    </div>
+                    </div> */}
                     {errors.confirmPassword && touched.confirmPassword ? (
                         <p className="text-red-600 text-center text-sm">{errors.confirmPassword}</p>
                     ) : null}
