@@ -19,7 +19,7 @@ const UserProfile = () => {
 
 
     return (
-        <div className="flex items-center h-screen w-full justify-center gap-2">
+        <div className="flex items-center h-screen w-full justify-center gap-2 bg-blue-200">
             <div className='md:flex gap-3'>
                 <div className="max-w-xs">
                     <div className="bg-white shadow-xl h-full rounded-lg py-3">

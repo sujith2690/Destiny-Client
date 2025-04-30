@@ -1,191 +1,146 @@
-export const locations = [
+export const packages = [
     {
+        id: 1,
         name: "Eiffel Tower",
-        location: "Paris, France",
-        image: "https://cdn.pixabay.com/photo/2015/03/26/09/54/eiffel-tower-690050_1280.jpg",
+        place: "Paris, France",
+        image: "https://cdn.pixabay.com/photo/2019/07/21/16/29/paris-4353082_1280.jpg",
         description: "An iconic symbol of France, offering panoramic views of Paris.",
-        packageExpense: "$1,200 - $2,000"
+        packageExpense: "$1500"
     },
     {
+        id: 2,
         name: "Santorini",
-        location: "Greece",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/santorini-1839683_1280.jpg",
+        place: "Greece",
+        image: "https://cdn.pixabay.com/photo/2016/08/09/20/25/greece-1581661_1280.jpg",
         description: "Famous for white-washed buildings with blue domes and stunning sunsets.",
-        packageExpense: "$1,000 - $1,800"
+        packageExpense: "$1800"
     },
     {
+        id: 3,
         name: "Kyoto",
-        location: "Japan",
-        image: "https://cdn.pixabay.com/photo/2018/05/30/19/42/japan-3445635_1280.jpg",
+        place: "Japan",
+        image: "https://cdn.pixabay.com/photo/2020/01/31/07/27/temple-4807321_1280.jpg",
         description: "Known for classical Buddhist temples, gardens, and traditional wooden houses.",
-        packageExpense: "$1,500 - $2,200"
+        packageExpense: "$2200"
     },
     {
+        id: 4,
         name: "New York City",
-        location: "USA",
-        image: "https://cdn.pixabay.com/photo/2016/11/29/03/53/architecture-1868667_1280.jpg",
+        place: "USA",
+        image: "https://cdn.pixabay.com/photo/2020/06/16/01/40/buildings-5303864_1280.jpg",
         description: "The city that never sleeps, offering iconic landmarks and vibrant culture.",
-        packageExpense: "$1,800 - $2,500"
+        packageExpense: "$2500"
     },
     {
+        id: 5,
         name: "Sydney Opera House",
-        location: "Sydney, Australia",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/sydney-1839683_1280.jpg",
+        place: "Sydney, Australia",
+        image: "https://cdn.pixabay.com/photo/2014/06/06/09/36/sydney-opera-house-363244_1280.jpg",
         description: "A masterpiece of 20th-century architecture and a world-renowned performing arts center.",
-        packageExpense: "$1,600 - $2,400"
+        packageExpense: "$2400"
     },
     {
+        id: 6,
         name: "Machu Picchu",
-        location: "Peru",
-        image: "https://cdn.pixabay.com/photo/2017/03/04/19/13/peru-2118593_1280.jpg",
+        place: "Peru",
+        image: "https://cdn.pixabay.com/photo/2017/11/02/22/53/cusco-festival-2912872_1280.jpg",
         description: "An ancient Incan city set high in the Andes Mountains.",
-        packageExpense: "$1,400 - $2,000"
+        packageExpense: "$2000"
     },
     {
+        id: 7,
         name: "Venice",
-        location: "Italy",
-        image: "https://cdn.pixabay.com/photo/2019/12/13/19/36/venice-4691635_1280.jpg",
+        place: "Italy",
+        image: "https://cdn.pixabay.com/photo/2020/02/11/16/25/pisa-4840084_1280.jpg",
         description: "Famous for its canals, gondolas, and historic architecture.",
-        packageExpense: "$1,200 - $1,900"
+        packageExpense: "$1800"
     },
     {
+        id: 8,
         name: "Great Wall",
-        location: "China",
-        image: "https://cdn.pixabay.com/photo/2020/02/16/13/05/great-wall-of-china-4852776_1280.jpg",
+        place: "China",
+        image: "https://cdn.pixabay.com/photo/2014/07/15/03/10/great-wall-of-china-393635_1280.jpg",
         description: "A series of fortifications built to protect Chinese states against invasions.",
-        packageExpense: "$1,300 - $2,100"
+        packageExpense: "$2000"
     },
     {
+        id: 9,
         name: "Cape Town",
-        location: "South Africa",
-        image: "https://cdn.pixabay.com/photo/2016/11/21/15/53/cape-town-1845742_1280.jpg",
+        place: "South Africa",
+        image: "https://cdn.pixabay.com/photo/2015/12/14/12/36/elephant-1092508_1280.jpg",
         description: "Known for its harbor, Table Mountain, and Cape Point.",
-        packageExpense: "$1,100 - $1,800"
+        packageExpense: "$1500"
     },
     {
+        id: 10,
         name: "Rio de Janeiro",
-        location: "Brazil",
-        image: "https://cdn.pixabay.com/photo/2020/04/20/12/13/rio-de-janeiro-5067026_1280.jpg",
+        place: "Brazil",
+        image: "https://cdn.pixabay.com/photo/2018/08/28/05/40/brazil-3636599_1280.jpg",
         description: "Famous for Copacabana and Ipanema beaches and the Christ the Redeemer statue.",
-        packageExpense: "$1,400 - $2,200"
+        packageExpense: "$1800"
     },
     {
+        id: 11,
         name: "Bora Bora",
-        location: "French Polynesia",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/bora-bora-1839683_1280.jpg",
+        place: "French Polynesia",
+        image: "https://cdn.pixabay.com/photo/2020/12/01/03/59/tahiti-5792933_1280.jpg",
         description: "A small island known for its turquoise waters and luxury resorts.",
-        packageExpense: "$3,000 - $5,000"
+        packageExpense: "$4500"
     },
     {
-        name: "Rome",
-        location: "Italy",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/rome-1839683_1280.jpg",
-        description: "Home to ancient ruins like the Colosseum and the Roman Forum.",
-        packageExpense: "$1,300 - $2,100"
-    },
-    {
+        id: 12,
         name: "Maldives",
-        location: "Maldives",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/maldives-1839683_1280.jpg",
+        place: "Maldives",
+        image: "https://cdn.pixabay.com/photo/2017/09/09/20/29/fish-2733323_1280.jpg",
         description: "A tropical paradise known for its beaches, blue lagoons, and extensive coral reefs.",
-        packageExpense: "$2,500 - $4,000"
+        packageExpense: "$3200"
     },
     {
+        id: 13,
         name: "Barcelona",
-        location: "Spain",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/barcelona-1839683_1280.jpg",
+        place: "Spain",
+        image: "https://cdn.pixabay.com/photo/2023/02/04/12/21/woman-7767045_1280.jpg",
         description: "Famous for its art and architecture, including the Sagrada Família.",
-        packageExpense: "$1,200 - $2,000"
+        packageExpense: "$1950"
     },
     {
+        id: 14,
         name: "Dubai",
-        location: "UAE",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/dubai-1839683_1280.jpg",
+        place: "UAE",
+        image: "https://cdn.pixabay.com/photo/2022/08/30/16/44/building-7421493_1280.jpg",
         description: "Known for luxury shopping, ultramodern architecture, and a lively nightlife scene.",
-        packageExpense: "$1,800 - $3,000"
+        packageExpense: "$2450"
     },
     {
+        id: 15,
         name: "Istanbul",
-        location: "Turkey",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/istanbul-1839683_1280.jpg",
+        place: "Turkey",
+        image: "https://cdn.pixabay.com/photo/2023/07/03/08/05/turkey-8103602_1280.jpg",
         description: "A city that straddles Europe and Asia across the Bosphorus Strait.",
-        packageExpense: "$1,100 - $1,900"
+        packageExpense: "$1750"
     },
     {
+        id: 16,
         name: "Singapore",
-        location: "Singapore",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/singapore-1839683_1280.jpg",
+        place: "Singapore",
+        image: "https://cdn.pixabay.com/photo/2017/08/31/09/40/singapore-2699987_1280.jpg",
         description: "A global financial center with a tropical climate and multicultural population.",
-        packageExpense: "$1,500 - $2,500"
+        packageExpense: "$2150"
     },
     {
+        id: 17,
         name: "Bangkok",
-        location: "Thailand",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/bangkok-1839683_1280.jpg",
+        place: "Thailand",
+        image: "https://cdn.pixabay.com/photo/2022/06/27/00/00/thailand-7286466_1280.jpg",
         description: "Known for ornate shrines and vibrant street life.",
-        packageExpense: "$1,000 - $1,800"
+        packageExpense: "$1250"
     },
     {
+        id: 18,
         name: "Amsterdam",
-        location: "Netherlands",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/amsterdam-1839683_1280.jpg",
+        place: "Netherlands",
+        image: "https://cdn.pixabay.com/photo/2022/02/20/13/45/angel-7024573_1280.jpg",
         description: "Famous for its canals, cycling culture, and historic buildings.",
-        packageExpense: "$1,200 - $2,000"
-    },
-    {
-        name: "Prague",
-        location: "Czech Republic",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/prague-1839683_1280.jpg",
-        description: "Known for its Old Town Square and colorful baroque buildings.",
-        packageExpense: "$1,100 - $1,900"
-    },
-    {
-        name: "Vienna",
-        location: "Austria",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/vienna-1839683_1280.jpg",
-        description: "Famous for its imperial palaces and classical music heritage.",
-        packageExpense: "$1,200 - $2,000"
-    },
-    {
-        name: "Lisbon",
-        location: "Portugal",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/lisbon-1839683_1280.jpg",
-        description: "Known for its hilly, coastal landscape and historic architecture.",
-        packageExpense: "$1,100 - $1,800"
-    },
-    {
-        name: "Seoul",
-        location: "South Korea",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/seoul-1839683_1280.jpg",
-        description: "A modern metropolis with pop culture, street markets, and palaces.",
-        packageExpense: "$1,400 - $2,200"
-    },
-    {
-        name: "Hanoi",
-        location: "Vietnam",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/hanoi-1839683_1280.jpg",
-        description: "Known for its centuries-old architecture and rich culture.",
-        packageExpense: "$1,000 - $1,700"
-    },
-    {
-        name: "Buenos Aires",
-        location: "Argentina",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/buenos-aires-1839683_1280.jpg",
-        description: "Famous for its European-style architecture and tango dance.",
-        packageExpense: "$1,300 - $2,100"
-    },
-    {
-        name: "Cairo",
-        location: "Egypt",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/cairo-1839683_1280.jpg",
-        description: "Home to the iconic pyramids and rich ancient history.",
-        packageExpense: "$1,200 - $2,000"
-    },
-    {
-        name: "Athens",
-        location: "Greece",
-        image: "https://cdn.pixabay.com/photo/2016/11/18/17/20/athens-1839683_1280.jpg",
-        description: "Known for ancient landmarks like the Parthenon and Acropolis.",
-        packageExpense: "$1,100 - $1,900"
+        packageExpense: "$2000"
     }
 ]

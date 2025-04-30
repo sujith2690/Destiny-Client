@@ -24,11 +24,13 @@ const SignUpForm = ({ handleSignUp }) => {
         onSubmit: async (values, action) => {
             setLoading(true)
             try {
-                console.log(values,'------------------values')
+                console.log(values, '------------------values')
                 setFormValues(values)
-                const result = await signUpApi(values)
-                toast.success(result.data.message)
-                setLoading(false)
+
+                const { data } = await signUpApi(values)
+                toast.success(data.message)
+                localStorage.setItem("token", data.Token);
+                localStorage.setItem("user", JSON.stringify(data.User));
                 navigate('/')
             } catch (error) {
                 toast.error(error.response.data.message)

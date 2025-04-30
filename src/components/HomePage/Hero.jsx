@@ -4,8 +4,8 @@ import SearchResult from './SearchResult'
 
 const Hero = () => {
     return (
-        <header
-            className="relative min-h-screen w-full flex items-center justify-center bg-cover bg-center mt-10"
+        <header name="home" id='home'
+            className="relative min-h-screen w-full flex items-center justify-center bg-cover bg-center"
             style={{
                 backgroundImage: `url('https://cdn.pixabay.com/photo/2017/12/29/18/47/mountains-3048299_1280.jpg')`,
             }}
@@ -25,7 +25,7 @@ const Hero = () => {
                 </p>
 
                 {/* Search Bar */}
-                <form className="w-full max-w-xl mx-auto">
+                {/* <form className="w-full max-w-xl mx-auto">
                     <div className="relative">
                         <input
                             type="text"
@@ -36,8 +36,7 @@ const Hero = () => {
                             <FiSearch size={20} />
                         </div>
                     </div>
-                    {/*  Search Results grid */}
-                </form>
+                </form> */}
                     {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4 w-full p-2">
                         <SearchResult />
                         <SearchResult />

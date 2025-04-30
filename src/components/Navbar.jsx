@@ -1,61 +1,75 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
+import { FaRoute } from "react-icons/fa";
 
 const Navbar = () => {
-
     const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     const navigation = [
-        { name: 'Home', href: '/', current: true },
-        { name: 'About', href: '/about', current: false },
-        { name: 'Services', href: '/services', current: false },
-        { name: 'Contact', href: '/contact', current: false },
-    ]
-    function classNames(...classes) {
-        return classes.filter(Boolean).join(' ');
-    }
+        { name: 'Home', href: 'home' },
+        { name: 'About', href: 'about' },
+        { name: 'Packages', href: 'packages' },
+        { name: 'Services', href: 'services' },
+        { name: 'Contact', href: 'contact' },
+    ];
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
+    function classNames(...classes) {
+        return classes.filter(Boolean).join(' ');
+    }
+
     return (
-        <header className="p-4 bg-gray-100 shadow-md fixed top-0 w-full z-50">
+        <header className={`p-4 fixed sm:px-10 top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md backdrop-blur-md' : 'bg-white/0 backdrop-blur-lg'}`}>
             <div className="container mx-auto flex justify-between items-center h-16">
                 {/* Logo */}
-                <a href="#" className="flex items-center justify-center  text-2xl font-bold h-full">
-                    <div className="flex items-center justify-center h-full">
-                        <img
-                            src="./logo.png"
-                            alt="Logo"
-                            className="h-10 sm:h-16 object-contain"
-                        />
-                    </div>
-                </a>
-                {/* Desktop Links */}
-                <ul className="hidden md:flex items-center space-x-6 text-md font-medium">
+                <ScrollLink to="home" smooth={true} duration={500} offset={-60} className="cursor-pointer">
+                    <p className={`sm:text-5xl text-2xl  flex gap-2 ${scrolled ? 'text-black' : 'text-white'}`}>
+                        <FaRoute className='transform scale-x-[-1] text-yellow-400' />
+                        <span className='font-bold'>DESTINY</span>
+                    </p>
+                </ScrollLink>
 
+                {/* Desktop Links */}
+                <ul className="hidden md:flex items-center space-x-2 text-md font-medium">
                     {navigation.map((item) => (
-                        <Link key={item.name}
+                        <ScrollLink
+                            key={item.name}
                             to={item.href}
+                            smooth={true}
+                            duration={500}
+                            offset={-60}
                             className={classNames(
-                                item.href === location.pathname
-                                    ? 'bg-gray-900 text-white'
-                                    : '',
-                                'rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 hover:delay-100 hover:text-blue-600'
+                                `cursor-pointer rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 hover:delay-100 hover:text-blue-600 ${scrolled ? 'text-black' : 'text-white'}`
                             )}
                         >
                             {item.name}
-                        </Link>
+                        </ScrollLink>
                     ))}
-                    <Link to={'/profile'} className='flex items-center gap-1 cursor-pointer'>
-                        <div className='bg-red-700 h-12 w-12 rounded-full overflow-hidden'>
-                            <img className='object-cover w-full h-full' src="./Vagamon.jpg" alt="" />
-                        </div>
+                    <RouterLink to="/profile" className={`flex items-center gap-1 cursor-pointer ${scrolled ? 'text-black' : 'text-white'}`}>
+                        {/* <div className="bg-red-700 h-12 w-12 rounded-full overflow-hidden">
+                            <img className="object-cover w-full h-full" src="./Vagamon.jpg" alt="Profile" />
+                        </div> */}
                         Profile
-                    </Link>
+                    </RouterLink>
                 </ul>
+
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center">
                     <button onClick={toggleMenu}>
@@ -70,36 +84,31 @@ const Navbar = () => {
 
             {/* Mobile Dropdown Menu */}
             {menuOpen && (
-                <div className="md:hidden bg-gray-100">
+                <div className="md:hidden bg-white shadow-md">
                     <ul className="flex flex-col items-center space-y-4 py-4 text-lg font-medium">
                         {navigation.map((item, index) => (
-                            <li key={index}>
-                                <a
-                                    href={item.href}
-                                    onClick={toggleMenu}
-                                    // className="transition-colors duration-300 hover:delay-150 hover:text-blue-600"
-                                    className={classNames(
-                                        item.href === location.pathname
-                                            ? 'bg-gray-900 text-white'
-                                            : 'text-black',
-                                        'rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 hover:delay-100 hover:text-blue-600')}
-                                >
-                                    {item.name}
-                                </a>
-                            </li>
+                            <ScrollLink
+                                key={index}
+                                to={item.href}
+                                smooth={true}
+                                duration={500}
+                                offset={-60}
+                                onClick={toggleMenu}
+                                className="text-black rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 hover:delay-100 hover:text-blue-600 cursor-pointer"
+                            >
+                                {item.name}
+                            </ScrollLink>
                         ))}
-                        <Link to={'/profile'} className='flex items-center gap-1 text-sm cursor-pointer'>
-                            <div className='bg-red-700 h-12 w-12 rounded-full overflow-hidden'>
-                                <img className='object-cover w-full h-full' src="./Vagamon.jpg" alt="" />
+                        <RouterLink to="/profile" className="flex items-center gap-1 text-sm cursor-pointer" onClick={toggleMenu}>
+                            <div className="bg-red-700 h-12 w-12 rounded-full overflow-hidden">
+                                <img className="object-cover w-full h-full" src="./Vagamon.jpg" alt="Profile" />
                             </div>
                             Profile
-                        </Link>
+                        </RouterLink>
                     </ul>
-
                 </div>
-            )
-            }
-        </header >
+            )}
+        </header>
     );
 };
 

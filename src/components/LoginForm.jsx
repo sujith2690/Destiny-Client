@@ -29,6 +29,7 @@ const LoginForm = ({ handleLogin }) => {
                 toast.success(data.message)
                 localStorage.setItem("token", data.Token);
                 localStorage.setItem("user", JSON.stringify(data.User));
+                navigate('/')
             } catch (error) {
                 toast.error(error.response.data.message)
                 console.log(error, 'Login failed');
