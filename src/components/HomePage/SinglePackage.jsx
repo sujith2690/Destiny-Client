@@ -3,8 +3,12 @@ import { GrNext } from "react-icons/gr";
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import PackageDetailModal from '../PackageDetailModal';
 import BookingSlot from './BookingSlot';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const SinglePackage = ({ item }) => {
+    const userId = useSelector((state) => state.user.userDetails._id)
+    console.log(userId, '-------------userId')
     const [modal, setModal] = useState(false)
     const [productId, setProductId] = useState()
     const [booking, setBooking] = useState()
@@ -16,11 +20,15 @@ const SinglePackage = ({ item }) => {
     const closeModal = () => {
         setModal(false)
     }
-    const handleBookNow = (id) => {
-        console.log(id, '---------id, place')
-        setProductId(id)
-        setModal(false)
-        setBooking(!booking)
+    const handleBookNow = ({ id, userId }) => {
+        if (!userId) {
+            toast.warning("Please do Login")
+        } else {
+            console.log(id, '---------id, place')
+            setProductId(id)
+            setModal(false)
+            setBooking(!booking)
+        }
     }
     const closeBooking = () => {
         setBooking(false)
@@ -39,7 +47,10 @@ const SinglePackage = ({ item }) => {
             {/* Content Layer */}
             <div className='relative z-10 flex justify-end p-2'>
                 <button
-                    onClick={() => handleBookNow(item?._id)}
+                    onClick={() => handleBookNow({
+                        id: item?._id,
+                        userId: userId,
+                    })}
                     className='bg-white flex rounded-2xl p-2 text-sm cursor-pointer hover:bg-yellow-300 transition-colors duration-300'>
                     Book Now
                 </button>

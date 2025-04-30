@@ -21,9 +21,9 @@ const BookingDetails = () => {
     }, []);
 
     return (
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-300 ">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-300 ">
                     <tr>
                         <th scope="col" className="px-4 py-3">NO:</th>
                         <th scope="col" className="px-4 py-3">Name</th>

@@ -8,6 +8,7 @@ import Loading from './pages/Loading'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from './components/ProtectedRoute';
+import { useSelector } from 'react-redux';
 
 // Lazy loaded pages
 const Auth = lazy(() => import('./pages/Auth'))
@@ -17,11 +18,13 @@ const ErrorPage = lazy(() => import('./pages/ErrorPage'))
 
 
 function App() {
-  const userData = localStorage.getItem('user');
-  const user = userData ? JSON.parse(userData) : null;
-  const userId = user ? user._id : null;
-  console.log(userId, 'userId');
+  // const userData = localStorage.getItem('user');
+  // const user = userData ? JSON.parse(userData) : null;
+  // const userId = user ? user._id : null;
+  // console.log(userId, 'userId');
 
+    const userId = useSelector((state) => state.user.userDetails._id)
+  console.log(userId, '----------from store')
   return (
     <div className='h-screen'>
       <ToastContainer />

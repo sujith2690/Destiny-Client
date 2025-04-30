@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { changeUser } from '../../APIs/userApi';
 import { toast } from 'react-toastify';
 
-const EditProfileModal = ({ closeModal }) => {
+const EditProfileModal = ({ closeModal,fetchUserData }) => {
     const user = JSON.parse(localStorage.getItem('user')) || null;
     const userId = user ? user._id : null;
     const [formData, setFormData] = useState({
@@ -33,9 +33,9 @@ const EditProfileModal = ({ closeModal }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { name, email, password, phone, address } = formData;
+            const { name, email, phone, address } = formData;
 
-            if (!name || !email || !password || !phone || !address) {
+            if (!name || !email || !phone || !address) {
                 alert("All fields are required.");
                 return;
             }
@@ -54,16 +54,17 @@ const EditProfileModal = ({ closeModal }) => {
                 return;
             }
 
-            if (password.length <= 3) {
-                alert("Password should be at least 6 characters.");
-                return;
-            }
+            // if (password.length <= 3) {
+            //     alert("Password should be at least 6 characters.");
+            //     return;
+            // }
 
             const { data } = await changeUser(formData);
+
             toast.success(data.message || 'Profile updated successfully!');
             localStorage.setItem('user', JSON.stringify(data.user));
             console.log(data, '-----------data')
-
+            fetchUserData()
         } catch (error) {
             toast.error(error.response.data.message)
             console.log(error, 'Update failed');
@@ -101,14 +102,14 @@ const EditProfileModal = ({ closeModal }) => {
                         onChange={handleChange}
                         className='w-full border border-gray-300 rounded-lg px-4 py-2'
                     />
-                    <input
+                    {/* <input
                         type="password"
                         name="password"
                         placeholder="New Password"
                         value={formData.password}
                         onChange={handleChange}
                         className='w-full border border-gray-300 rounded-lg px-4 py-2'
-                    />
+                    /> */}
                     <input
                         type="text"
                         name="phone"

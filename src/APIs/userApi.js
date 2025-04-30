@@ -10,4 +10,5 @@ API.interceptors.request.use((req) => {
     return req;
 });
 
+export const getUser = () => API.get('/user/data')
 export const changeUser = (data) => API.post('/user/profile', data)

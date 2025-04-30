@@ -5,6 +5,7 @@ import { bookSlot } from '../../APIs/bookingApi';
 import { singlePackageApi } from '../../APIs/authAPI';
 
 const BookingSlot = ({ closeBooking, packageId }) => {
+    console.log(packageId,'------------------packageId')
     const [singleData, setSingleData] = useState()
     const [formData, setFormData] = useState({
         name: '',

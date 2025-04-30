@@ -6,10 +6,13 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingContent from './LoadingContent';
 import { loginSchema } from '../schema/validation';
+import { useDispatch } from 'react-redux'
 import { logInApi } from '../APIs/authAPI';
+import { accessToken, userDetails } from '../Redux/Features/userSlice';
 
 
 const LoginForm = ({ handleLogin }) => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [formValues, setFormValues] = useState({
@@ -25,8 +28,13 @@ const LoginForm = ({ handleLogin }) => {
             setLoading(true)
             try {
                 const { data } = await logInApi(values)
-                console.log(data.message, '---data----')
-                toast.success(data.message)
+                // console.log(data.message, '---data----')
+                // toast.success(data.message)
+                // localStorage.setItem("token", data.Token);
+                // localStorage.setItem("user", JSON.stringify(data.User));
+                // navigate('/')
+                dispatch(userDetails(data.User));
+                dispatch(accessToken(data.Token));
                 localStorage.setItem("token", data.Token);
                 localStorage.setItem("user", JSON.stringify(data.User));
                 navigate('/')

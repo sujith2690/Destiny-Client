@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { packages } from '../data/travelDestinations';
 import { singlePackageApi } from '../APIs/authAPI';
+import { useSelector } from 'react-redux';
 
 const PackageDetailModal = ({ setModal, id, closeModal, handleBookNow }) => {
+    const userId = useSelector((state) => state.user.userDetails._id)
     const [singleData, setSingleData] = useState()
     const handleClose = () => {
         closeModal()
@@ -11,7 +13,7 @@ const PackageDetailModal = ({ setModal, id, closeModal, handleBookNow }) => {
 
         const getSinglePackage = async (id) => {
             try {
-                console.log('single*********')
+                console.log(id,'------------single** package*******')
                 const { data } = await singlePackageApi(id)
                 console.log(data, '-----------single package data')
                 setSingleData(data?.packages)
@@ -44,7 +46,10 @@ const PackageDetailModal = ({ setModal, id, closeModal, handleBookNow }) => {
                         <div className='text-lg font-semibold text-yellow-600 mb-4'>{singleData?.packageExpense}</div>
                         <div className='grid place-items-center'>
                             <button
-                                onClick={() => handleBookNow(singleData?._id)}
+                                onClick={() => handleBookNow({
+                                    id: singleData?._id,
+                                    userId:userId
+                                })}
                                 className='bg-yellow-400 hover:bg-yellow-600 text-white px-6 py-2 rounded-md transition-colors duration-300 font-bold'>
                                 Book Now
                             </button>

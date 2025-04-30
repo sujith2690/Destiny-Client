@@ -5,8 +5,11 @@ import { toast } from 'react-toastify';
 import { signUpSchema } from '../schema/validation';
 import LoadingContent from './LoadingContent';
 import { signUpApi } from '../APIs/authAPI';
+import { useDispatch } from 'react-redux';
+import { accessToken, userDetails } from '../Redux/Features/userSlice';
 
 const SignUpForm = ({ handleSignUp }) => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
 
@@ -26,12 +29,13 @@ const SignUpForm = ({ handleSignUp }) => {
             try {
                 console.log(values, '------------------values')
                 setFormValues(values)
-
                 const { data } = await signUpApi(values)
-                toast.success(data.message)
+                dispatch(userDetails(data.User));
+                dispatch(accessToken(data.Token));
                 localStorage.setItem("token", data.Token);
                 localStorage.setItem("user", JSON.stringify(data.User));
-                navigate('/')
+                toast.success(data.message);
+                navigate('/');
             } catch (error) {
                 toast.error(error.response.data.message)
                 console.log(error, 'Login failed');
