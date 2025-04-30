@@ -60,14 +60,14 @@ const UserProfile = () => {
 
     return (
         <>
-            <div className='bg-blue-200 h-full text-black flex flex-col items-center justify-center gap-2'>
+            {/* <div className='bg-blue-200 h-full text-black flex flex-col items-center justify-center gap-2'>
                 <div>
                     {userData?.name}
                     {userData?.email}
                     {userData?.phone}
                     {userData?.address}
                 </div>
-            </div>
+            </div> */}
 
             <div className="flex items-center h-screen w-full justify-center gap-2 bg-blue-200">
                 <div className='sm:flex flex-row  gap-3 w-full justify-center '>
