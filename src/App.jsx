@@ -36,7 +36,7 @@ function App() {
           <Route path="/profile" element={<ProtectedRoute userId={userId} element={< Profile />} />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
-      </Suspense>
+      </Suspense> 
     </div>
   )
 }
